@@ -6,7 +6,9 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.reply_to(message, "Привет! Я бот для управления чатом.")
-
+@bot.massage_handler(commands=['help'])
+def help(message):
+    bot.reply_to(message, "Чтобы забанить пользователя, надо написать /ban юзернейм пользователя")
 @bot.message_handler(commands=['ban'])
 def ban_user(message):
     if message.reply_to_message: #проверка на то, что эта команда была вызвана в ответ на сообщение 
